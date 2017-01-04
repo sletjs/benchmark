@@ -1,26 +1,22 @@
-
 'use strict'
 
 const Promise = require('bluebird')
 const http = require('http')
+const fs = require('fs')
+var servers = []
+var results = []
 
-function createServer(name, app){
+function createServer(name, app) {
   let s = http.createServer(app)
   s.name = name
   return s
 }
 
-var app = require('./app/koa2')
-
-const koa2 = createServer('koa2', app.callback())
-
-var expressapp = require('./app/express')
-
-const express = createServer('express', expressapp)
-
-var servers = [koa2, express]
-
-var results = []
+fs.readdirSync('./app').forEach(function(file) {
+  var app = require('./app/' + file)
+  const server = createServer(file.replace('.js', ' result = '), app)
+  servers.push(server)
+})
 
 Promise.reduce(servers,  (total, _server, index) => {
     return require('./wrk')(_server).then(function(re) {
@@ -34,7 +30,8 @@ Promise.reduce(servers,  (total, _server, index) => {
     let r = results[i]
     console.log(r.title + " qps = " + r.requests.average)
   }
-  
+  let r = {all: results}
+  fs.writeFileSync('r.json', JSON.stringify(r, null, 4))
   process.exit(0)
 });
 
