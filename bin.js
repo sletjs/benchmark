@@ -1,20 +1,40 @@
 
 'use strict'
 
-
+const Promise = require('bluebird')
 const http = require('http')
 
+function createServer(name, app){
+  let s = http.createServer(app)
+  s.name = name
+  return s
+}
+
 var app = require('./app/koa2')
-const server = http.createServer(app.callback())
 
-server.listen()
+const koa2 = createServer('koa2', app.callback())
 
-server.on('listening', function() {
-  var port = server.address().port
-  console.log(port)
+var expressapp = require('./app/express')
+
+const express = createServer('express', expressapp)
+
+var servers = [koa2, express]
+
+var results = []
+
+Promise.reduce(servers,  (total, _server, index) => {
+    return require('./wrk')(_server).then(function(re) {
+      results.push(re)
+    })
+}, 0).then(function(total) {
+    //Total is 30
+  // console.log(results.length)
   
-  require('./wrk')(port, function (results) {
-    console.log(results)
-  })
-})
+  for(var i in results) {
+    let r = results[i]
+    console.log(r.title + " qps = " + r.requests.average)
+  }
+  
+  process.exit(0)
+});
 

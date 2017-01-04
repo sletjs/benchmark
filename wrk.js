@@ -1,35 +1,39 @@
 'use strict'
 
-
 const autocannon = require('autocannon')
 
-module.exports = function(port, handleResults){
-  const instance = autocannon({
-    url: 'http://localhost:+ port',
-    setupClient: setupClient
-  }, (err, result) => handleResults(result))
-  // results passed to the callback are the same as those emitted from the done events
-  instance.on('done', handleResults)
+module.exports = function(server){
+  // console.log(server.name)
+  server.listen()
+  
+  return new Promise(function(resolve, reject){
+    server.on('listening', function() {
+      var port = server.address().port
+      // console.log(port)
+    
+      const instance = autocannon({
+        url: 'http://localhost:' + port,
+        title: server.name,
+        connections: 100, //default
+        pipelining:10,
+        duration: 5
+      }, finishedBench)
 
-  instance.on('tick', () => console.log('ticking'))
+      // autocannon.track(instance)
 
-  instance.on('response', handleResponse)
+      // this is used to kill the instance on CTRL-C
+      process.once('SIGINT', () => {
+        instance.stop()
+      })
 
-  function setupClient (client) {
-    client.on('body', console.log) // console.log a response body when its received
-  }
-
-  function handleResponse (client, statusCode, resBytes, responseTime) {
-    console.log(`Got response with code ${statusCode} in ${responseTime} milliseconds`)
-    console.log(`response: ${resBytes.toString()}`)
-
-    //update the body or headers
-    client.setHeaders({new: 'header'})
-    client.setBody('new body')
-    client.setHeadersAndBody({new: 'header'}, 'new body')
-  }
-
-  function handleResults(result) {
-    // ...
-  }
+      function finishedBench (err, res) {
+        if (err) {
+          reject(err)
+        }
+        // console.log('finished bench', err, res)
+        // instance.stop()
+        resolve(res)
+      }
+    })
+  })
 }
