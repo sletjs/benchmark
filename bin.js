@@ -30,7 +30,7 @@ Promise.reduce(servers,  (total, _server, index) => {
     let r = results[i]
     console.log(r.title + " qps = " + r.requests.average)
   }
-  let r = {all: results}
+  let r = {data: results}
   fs.writeFileSync('r.json', JSON.stringify(r, null, 4))
   process.exit(0)
 });

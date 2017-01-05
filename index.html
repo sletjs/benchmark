@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Table Examples</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap-table/bootstrap-table.min.css" type="text/css" media="screen">
+    
+    <link rel="stylesheet" href="assets/index.css">
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap-table/bootstrap-table.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="assets/index.js"></script>
+</head>
+<body>
+
+
+<div class="ribbon">
+    <a href="#" target="_blank">View Source on GitHub</a>
+</div>
+
+<div class="content" style='width:80%'>
+  <div class="container">
+    <table data-url="r.json"
+            data-toggle='table'
+            data-show-refresh="true"
+             data-show-export="true"
+            data-show-toggle="true"
+            data-show-columns="true"
+            data-striped="true",
+            data-search='true',
+            data-show-export='true',
+            data-id-field="id"
+       >
+         <thead>
+             <tr>
+                 <th data-field="title">title</th>
+                 <th data-field="url" data-sortable=true>url</th>
+                 <th data-field="requests.average" data-sortable=true>QPS</th>
+                <th data-field="latency.average" data-sortable=true>latency.average</th>
+                <th data-field="throughput.average" data-sortable=true>throughput.average</th>
+                
+                <th data-field="errors" data-sortable=true>errors</th>
+                <th data-field="timeouts" data-sortable=true>timeouts</th>
+                
+                <th data-field="duration" data-sortable=true>duration</th>
+                <th data-field="start" data-sortable=true>start</th>
+                
+                <th data-field="finish" data-sortable=true>finish</th>
+                <th data-field="connections" data-sortable=true>connections</th>
+                <th data-field="pipelining" data-sortable=true>pipelining</th>
+                  
+                 <th data-field="requests.mean" data-sortable=true>requests.mean</th>
+                 <th data-field="requests.stddev" data-sortable=true>requests.stddev</th>
+                 <th data-field="requests.min" data-sortable=true>requests.min</th>
+                 <th data-field="requests.max" data-sortable=true>requests.max</th>
+                 <th data-field="requests.total" data-sortable=true>requests.total</th>
+                 <th data-field="requests.sent" data-sortable=true>requests.sent</th>
+                 
+                
+                 <th data-field="latency.mean" data-sortable=true>latency.mean</th>
+                 <th data-field="latency.stddev" data-sortable=true>latency.stddev</th>
+                 <th data-field="latency.min" data-sortable=true>latency.min</th>
+                 <th data-field="latency.max" data-sortable=true>latency.max</th>
+                 
+                 <th data-field="latency.p50" data-sortable=true>latency.p50</th>
+                 <th data-field="latency.p75" data-sortable=true>latency.p75</th>
+                 <th data-field="latency.p90" data-sortable=true>latency.p90</th>
+                 <th data-field="latency.p99" data-sortable=true>latency.p99</th>
+                 <th data-field="latency.p999" data-sortable=true>latency.p999</th>
+                 <th data-field="latency.p9999" data-sortable=true>latency.p9999</th>
+                 <th data-field="latency.p99999" data-sortable=true>latency.p99999</th>
+            
+                 
+                 <th data-field="throughput.mean" data-sortable=true>throughput.mean</th>
+                 <th data-field="throughput.stddev" data-sortable=true>throughput.stddev</th>
+                 <th data-field="throughput.min" data-sortable=true>throughput.min</th>
+                 <th data-field="throughput.max" data-sortable=true>throughput.max</th>
+                 <th data-field="throughput.total" data-sortable=true>throughput.total</th>
+       
+                 
+                 
+                 
+                 <th data-field="non2xx" data-sortable=true>non2xx</th>
+                 
+                 <th data-field="1xx" data-sortable=true>1xx</th>
+                 <th data-field="2xx" data-sortable=true>2xx</th>
+                 <th data-field="3xx" data-sortable=true>3xx</th>
+                 <th data-field="4xx" data-sortable=true>4xx</th>
+                 <th data-field="5xx" data-sortable=true>5xx</th>
+        
+             </tr>
+         </thead>
+    </table>
+  </div>
+</div>
+</body>
+</html>
