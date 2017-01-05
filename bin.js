@@ -14,7 +14,7 @@ function createServer(name, app) {
 
 fs.readdirSync('./app').forEach(function(file) {
   var app = require('./app/' + file)
-  const server = createServer(file.replace('.js', ' result = '), app)
+  const server = createServer(file.replace('.js', ''), app)
   servers.push(server)
 })
 
@@ -31,7 +31,7 @@ Promise.reduce(servers,  (total, _server, index) => {
     console.log(r.title + " qps = " + r.requests.average)
   }
   let r = {data: results}
-  fs.writeFileSync('r.json', JSON.stringify(r, null, 4))
+  fs.writeFileSync('assets/data.json', JSON.stringify(r, null, 4))
   process.exit(0)
 });
 

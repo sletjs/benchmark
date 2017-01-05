@@ -1,0 +1,100 @@
+{
+    "data": [
+        {
+            "title": "express",
+            "url": "http://localhost:60879",
+            "requests": {
+                "average": 5402,
+                "mean": 5402,
+                "stddev": 2333.63,
+                "min": 2950,
+                "max": 9007,
+                "total": 27000,
+                "sent": 28000
+            },
+            "latency": {
+                "average": 18.79,
+                "mean": 18.79,
+                "stddev": 72.97,
+                "min": 0,
+                "max": 849,
+                "p50": 0,
+                "p75": 0,
+                "p90": 7,
+                "p99": 319,
+                "p999": 845,
+                "p9999": 848,
+                "p99999": 849
+            },
+            "throughput": {
+                "average": 1133772.8,
+                "mean": 1133772.8,
+                "stddev": 485961.71,
+                "min": 589824,
+                "max": 1900543,
+                "total": 5670000
+            },
+            "errors": 0,
+            "timeouts": 0,
+            "duration": 5,
+            "start": "2017-01-05T02:45:31.112Z",
+            "finish": "2017-01-05T02:45:36.444Z",
+            "connections": 100,
+            "pipelining": 10,
+            "non2xx": 0,
+            "1xx": 0,
+            "2xx": 27000,
+            "3xx": 0,
+            "4xx": 0,
+            "5xx": 0
+        },
+        {
+            "title": "koa2",
+            "url": "http://localhost:60985",
+            "requests": {
+                "average": 11185.2,
+                "mean": 11185.2,
+                "stddev": 2248.47,
+                "min": 6748,
+                "max": 13007,
+                "total": 55910,
+                "sent": 56910
+            },
+            "latency": {
+                "average": 8.99,
+                "mean": 8.99,
+                "stddev": 29.74,
+                "min": 0,
+                "max": 524,
+                "p50": 0,
+                "p75": 0,
+                "p90": 5,
+                "p99": 109,
+                "p999": 271,
+                "p9999": 522,
+                "p99999": 524
+            },
+            "throughput": {
+                "average": 1667891.2,
+                "mean": 1667891.2,
+                "stddev": 338066.68,
+                "min": 983040,
+                "max": 1966079,
+                "total": 8330590
+            },
+            "errors": 0,
+            "timeouts": 0,
+            "duration": 5,
+            "start": "2017-01-05T02:45:36.471Z",
+            "finish": "2017-01-05T02:45:41.617Z",
+            "connections": 100,
+            "pipelining": 10,
+            "non2xx": 0,
+            "1xx": 0,
+            "2xx": 55910,
+            "3xx": 0,
+            "4xx": 0,
+            "5xx": 0
+        }
+    ]
+}
