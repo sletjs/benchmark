@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
 
-app.use(express.static('..'))
+var serveStatic = require('serve-static')
+
+app.use(serveStatic('..'))
 
 app.get('/', function (req, res) {
   res.send('Hello World')
