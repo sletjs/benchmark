@@ -22,7 +22,7 @@
     "autocannon": "^0.16.0",
     "bluebird": "^3.4.7",
     "content-disposition": "^0.5.2",
-    "debug": "^2.4.5",
+    "debug": "^2.6.3",
     "encodeurl": "^1.0.1",
     "express": "^4.14.0",
     "finalhandler": "^0.5.1",
