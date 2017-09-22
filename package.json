@@ -25,7 +25,7 @@
     "debug": "^2.4.5",
     "encodeurl": "^1.0.1",
     "express": "^4.14.0",
-    "finalhandler": "^0.5.1",
+    "finalhandler": "^1.0.6",
     "koa": "next",
     "koa-bodyparser": "next",
     "koa-compose": "next",
