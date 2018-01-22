@@ -23,7 +23,7 @@
     "bluebird": "^3.4.7",
     "content-disposition": "^0.5.2",
     "debug": "^2.4.5",
-    "encodeurl": "^1.0.1",
+    "encodeurl": "^1.0.2",
     "express": "^4.14.0",
     "finalhandler": "^0.5.1",
     "koa": "next",
